@@ -89,7 +89,7 @@ Error generating stack: `+e.message+`
   line-height: 20px;
   letter-spacing: 8%;
   color: white;
-`,ln=(e,t)=>e===t.length;function un({setValue:e,validator:t,onError:n,...r}){let[i,a]=(0,_.useState)(!1),o=r=>{let i=r.target.value;if(Number.isNaN(Number(i))){n(`숫자만 입력할 수 있습니다.`);return}e(i),n(null),t(i)?a(!1):a(!0)};return(0,P.jsx)(dn,{isNotValidate:i,type:`text`,onChange:e=>o(e),...r})}var dn=N.input`
+`,ln=(e,t)=>e===t.length;function un({setValue:e,validator:t,onError:n,...r}){let[i,a]=(0,_.useState)(!1),o=r=>{let i=r.target.value;if(Number.isNaN(Number(i))||i.trim()===``){n(`숫자만 입력할 수 있습니다.`);return}e(i),n(null),t(i)?a(!1):a(!0)};return(0,P.jsx)(dn,{isNotValidate:i,type:`text`,onChange:e=>o(e),...r})}var dn=N.input`
   border: 1px solid ${e=>e.isNotValidate?`#FF3D3D`:`#acacac`};
   &::placeholder {
     color: #acacac;
