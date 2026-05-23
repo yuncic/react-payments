@@ -139,14 +139,14 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   color: white;
   min-height: 52px;
   cursor: pointer;
-`,iu=e=>{let t=e.first;if(t.length<1)return null;if(t[0]===`4`)return`visa`;if(t.length<2)return null;let n=Number(t[1]);if(t[0]===`5`)return 1<=n&&n<=5?`master`:null;if(t[0]===`3`)return n===6?`diners`:n===4||n===7?`amex`:null;if(t[0]===`6`){if(t.length<3)return null;let n=Number(t.slice(0,3));if(624<=n&&n<=626)return`unionpay`;if(t.length<4)return null;let r=Number(t);if(6282<=r&&r<=6288)return`unionpay`;let i=(t+e.second).slice(0,6);if(i.length<6)return null;let a=Number(i);return 622126<=a&&a<=622925?`unionpay`:null}return null};function au(){let[e,t]=(0,_.useState)({first:``,second:``,third:``,fourth:``}),[n,r]=(0,_.useState)({mm:``,yy:``}),[i,a]=(0,_.useState)(``),[o,s]=(0,_.useState)({value:``,label:``}),[c,l]=(0,_.useState)(``),u=iu(e),[d,f]=(0,_.useState)(!1),[p,m]=(0,_.useState)(!1),[h,g]=(0,_.useState)(!1);return{cardNumbers:e,expNumbers:n,cvcNumbers:i,cardFirm:o,passwordNumbers:c,cardBrand:u,isCardNumberCompleted:d,isExpNumberCompleted:p,isCvcNumberCompleted:h,isAllValid:o.value!==``&&Ma(e,u)===null&&La(n)===null&&Ba(i)===null&&$l(c)===null,onCardNumberChange:e=>t(e),onExpNumberChange:e=>r(e),onCvcNumberChange:e=>a(e),onCardFirmChange:(e,t)=>s({value:e,label:t}),onPasswordNumberChange:e=>l(e),onCardNumberComplete:e=>{e&&f(!0)},onExpNumberComplete:e=>{e&&m(!0)},onCvcNumberComplete:e=>{e&&g(!0)}}}var ou={get:()=>fetch(`/cards`),post:e=>fetch(`/cards`,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(e)}),delete:e=>fetch(`/cards/${e}`,{method:`DELETE`})};function su({cardNumbers:e,expNumbers:t,cvcNumbers:n,cardFirm:r}){let[i,a]=(0,_.useState)(null),[o,s]=(0,_.useState)(!1),c=mt();return{serverError:i,handleComplete:async()=>{try{s(!0);let i=await ou.post({number:Object.values(e).join(``),expirationDate:Object.values(t).join(`/`),cvc:n,issuerCode:r.value});if(!i.ok){a(await i.json());return}a(null),c(`/cards`)}catch{alert(`네트워크 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.`)}finally{s(!1)}},isSubmitting:o}}function cu(){let{cardNumbers:e,expNumbers:t,cvcNumbers:n,cardFirm:r,passwordNumbers:i,cardBrand:a,isCardNumberCompleted:o,isExpNumberCompleted:s,isCvcNumberCompleted:c,isAllValid:l,onCardNumberChange:u,onExpNumberChange:d,onCvcNumberChange:f,onCardFirmChange:p,onPasswordNumberChange:m,onCardNumberComplete:h,onExpNumberComplete:g,onCvcNumberComplete:_}=au(),{handleComplete:v,serverError:y,isSubmitting:b}=su({cardNumbers:e,expNumbers:t,cvcNumbers:n,cardFirm:r});return(0,L.jsxs)(uu,{children:[(0,L.jsx)(pa,{cardNumbers:e,EXP:t,cardFirm:r,cardBrand:a}),(0,L.jsxs)(lu,{children:[c&&(0,L.jsx)(ea,{title:`비밀번호를 입력해 주세요`,caption:`앞의 2자리를 입력해주세요`,label:`비밀번호 앞 2자리`,children:(0,L.jsx)(eu,{onChange:m,value:i})}),s&&(0,L.jsx)(ea,{title:`CVC 번호를 입력해 주세요`,label:`CVC`,children:(0,L.jsx)(Va,{onChange:f,value:n,onComplete:_,errorMessage:y?.code===`INVALID_CVC`?y.message:null})}),r.value&&(0,L.jsx)(ea,{title:`카드 유효기간을 입력해 주세요`,caption:`월/년도(MMYY)를 순서대로 입력해 주세요`,label:`유효기간`,children:(0,L.jsx)(Ra,{onChange:d,value:t,onComplete:g,errorMessage:y?.code===`INVALID_EXPIRATION_DATE`?y.message:null})}),o&&(0,L.jsx)(ea,{title:`카드사를 선택해 주세요`,caption:`현재 국내 카드사만 가능합니다.`,children:(0,L.jsx)(Zl,{onChange:p})}),(0,L.jsx)(ea,{title:`결제할 카드 번호를 입력해 주세요`,caption:`본인 명의의 카드만 결제 가능합니다.`,label:`카드 번호`,children:(0,L.jsx)(Na,{onChange:u,value:e,onComplete:h,cardBrand:a,errorMessage:y?.code===`INVALID_CARD_NUMBER`?y.message:null})})]}),l&&(0,L.jsx)(tu,{onClick:v,disabled:b})]})}var lu=I.div`
+`,iu=e=>{let t=e.first;if(t.length<1)return null;if(t[0]===`4`)return`visa`;if(t.length<2)return null;let n=Number(t[1]);if(t[0]===`5`)return 1<=n&&n<=5?`master`:null;if(t[0]===`3`)return n===6?`diners`:n===4||n===7?`amex`:null;if(t[0]===`6`){if(t.length<3)return null;let n=Number(t.slice(0,3));if(624<=n&&n<=626)return`unionpay`;if(t.length<4)return null;let r=Number(t);if(6282<=r&&r<=6288)return`unionpay`;let i=(t+e.second).slice(0,6);if(i.length<6)return null;let a=Number(i);return 622126<=a&&a<=622925?`unionpay`:null}return null};function au(){let[e,t]=(0,_.useState)({first:``,second:``,third:``,fourth:``}),[n,r]=(0,_.useState)({mm:``,yy:``}),[i,a]=(0,_.useState)(``),[o,s]=(0,_.useState)({value:``,label:``}),[c,l]=(0,_.useState)(``),u=iu(e),[d,f]=(0,_.useState)(!1),[p,m]=(0,_.useState)(!1),[h,g]=(0,_.useState)(!1);return{cardNumbers:e,expNumbers:n,cvcNumbers:i,cardFirm:o,passwordNumbers:c,cardBrand:u,isCardNumberCompleted:d,isExpNumberCompleted:p,isCvcNumberCompleted:h,isAllValid:o.value!==``&&Ma(e,u)===null&&La(n)===null&&Ba(i)===null&&$l(c)===null,onCardNumberChange:e=>t(e),onExpNumberChange:e=>r(e),onCvcNumberChange:e=>a(e),onCardFirmChange:(e,t)=>s({value:e,label:t}),onPasswordNumberChange:e=>l(e),onCardNumberComplete:e=>{e&&f(!0)},onExpNumberComplete:e=>{e&&m(!0)},onCvcNumberComplete:e=>{e&&g(!0)}}}var ou={get:()=>fetch(`/cards`),post:e=>fetch(`/cards`,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify(e)}),delete:e=>fetch(`/cards/${e}`,{method:`DELETE`})};function su({cardNumbers:e,expNumbers:t,cvcNumbers:n,cardFirm:r}){return{number:Object.values(e).join(``),expirationDate:Object.values(t).join(`/`),cvc:n,issuerCode:r.value}}function cu({cardNumbers:e,expNumbers:t,cvcNumbers:n,cardFirm:r,onSuccess:i}){let[a,o]=(0,_.useState)(null),[s,c]=(0,_.useState)(!1);return{serverError:a,handleComplete:async()=>{try{c(!0);let a=await ou.post(su({cardNumbers:e,expNumbers:t,cvcNumbers:n,cardFirm:r}));if(!a.ok){o(await a.json());return}o(null),i()}catch{alert(`네트워크 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.`)}finally{c(!1)}},isSubmitting:s,onSuccess:i}}function lu(){let{cardNumbers:e,expNumbers:t,cvcNumbers:n,cardFirm:r,passwordNumbers:i,cardBrand:a,isCardNumberCompleted:o,isExpNumberCompleted:s,isCvcNumberCompleted:c,isAllValid:l,onCardNumberChange:u,onExpNumberChange:d,onCvcNumberChange:f,onCardFirmChange:p,onPasswordNumberChange:m,onCardNumberComplete:h,onExpNumberComplete:g,onCvcNumberComplete:_}=au(),v=mt(),{handleComplete:y,serverError:b,isSubmitting:x}=cu({cardNumbers:e,expNumbers:t,cvcNumbers:n,cardFirm:r,onSuccess:()=>v(`/cards`)});return(0,L.jsxs)(du,{children:[(0,L.jsx)(pa,{cardNumbers:e,EXP:t,cardFirm:r,cardBrand:a}),(0,L.jsxs)(uu,{children:[c&&(0,L.jsx)(ea,{title:`비밀번호를 입력해 주세요`,caption:`앞의 2자리를 입력해주세요`,label:`비밀번호 앞 2자리`,children:(0,L.jsx)(eu,{onChange:m,value:i})}),s&&(0,L.jsx)(ea,{title:`CVC 번호를 입력해 주세요`,label:`CVC`,children:(0,L.jsx)(Va,{onChange:f,value:n,onComplete:_,errorMessage:b?.code===`INVALID_CVC`?b.message:null})}),r.value&&(0,L.jsx)(ea,{title:`카드 유효기간을 입력해 주세요`,caption:`월/년도(MMYY)를 순서대로 입력해 주세요`,label:`유효기간`,children:(0,L.jsx)(Ra,{onChange:d,value:t,onComplete:g,errorMessage:b?.code===`INVALID_EXPIRATION_DATE`?b.message:null})}),o&&(0,L.jsx)(ea,{title:`카드사를 선택해 주세요`,caption:`현재 국내 카드사만 가능합니다.`,children:(0,L.jsx)(Zl,{onChange:p})}),(0,L.jsx)(ea,{title:`결제할 카드 번호를 입력해 주세요`,caption:`본인 명의의 카드만 결제 가능합니다.`,label:`카드 번호`,children:(0,L.jsx)(Na,{onChange:u,value:e,onComplete:h,cardBrand:a,errorMessage:b?.code===`INVALID_CARD_NUMBER`?b.message:null})})]}),l&&(0,L.jsx)(tu,{onClick:y,disabled:x})]})}var uu=I.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
   flex: 1;
   overflow-y: auto;
   width: 100%;
-`,uu=I.main`
+`,du=I.main`
   position: fixed;
   top: 50%;
   left: 50%;
@@ -162,7 +162,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   overflow: hidden;
   box-sizing: border-box;
   border: 0.5px solid #e0e0e0;
-`;function du(){let e=dt(),t=mt(),{first:n,cardFirmLabel:r}=e.state;return(0,L.jsxs)(fu,{children:[(0,L.jsxs)(pu,{children:[(0,L.jsx)(mu,{src:`./checkImg.svg`}),(0,L.jsxs)(hu,{children:[n,`로 시작하는 `,(0,L.jsx)(`br`,{}),r,`가 등록되었어요.`]})]}),(0,L.jsx)(tu,{onClick:()=>t(`/`)})]})}var fu=I.div`
+`;function fu(){let e=dt(),t=mt(),{first:n,cardFirmLabel:r}=e.state;return(0,L.jsxs)(pu,{children:[(0,L.jsxs)(mu,{children:[(0,L.jsx)(hu,{src:`./checkImg.svg`}),(0,L.jsxs)(gu,{children:[n,`로 시작하는 `,(0,L.jsx)(`br`,{}),r,`가 등록되었어요.`]})]}),(0,L.jsx)(tu,{onClick:()=>t(`/`)})]})}var pu=I.div`
   display: flex;
   flex-direction: column;
   font-family: sans-serif;
@@ -172,31 +172,31 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   height: 100vh;
   margin: 0 auto;
   gap: 40px;
-`,pu=I.div`
+`,mu=I.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
-`,mu=I.img`
+`,hu=I.img`
   width: 76px;
   height: 76px;
-`,hu=I.p`
+`,gu=I.p`
   font-size: 25px;
   font-weight: bold;
   text-align: center;
   line-height: 1.5;
-`;function gu(){return(0,L.jsxs)(yu,{"data-testid":`card-list-skeleton`,children:[Array.from({length:3}).map((e,t)=>(0,L.jsxs)(bu,{children:[(0,L.jsx)(xu,{}),(0,L.jsxs)(Su,{children:[(0,L.jsx)(Cu,{width:`80px`,height:`14px`}),(0,L.jsx)(Cu,{width:`140px`,height:`10px`}),(0,L.jsx)(Cu,{width:`60px`,height:`9px`})]})]},t)),(0,L.jsx)(wu,{})]})}var _u=Hi`
+`;function _u(){return(0,L.jsxs)(bu,{"data-testid":`card-list-skeleton`,children:[Array.from({length:3}).map((e,t)=>(0,L.jsxs)(xu,{children:[(0,L.jsx)(Su,{}),(0,L.jsxs)(Cu,{children:[(0,L.jsx)(wu,{width:`80px`,height:`14px`}),(0,L.jsx)(wu,{width:`140px`,height:`10px`}),(0,L.jsx)(wu,{width:`60px`,height:`9px`})]})]},t)),(0,L.jsx)(Tu,{})]})}var vu=Hi`
   0% { background-position: -400px 0; }
   100% { background-position: 400px 0; }
-`,vu=I.div`
+`,yu=I.div`
   background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
   background-size: 800px 100%;
-  animation: ${_u} 1.5s infinite;
-`,yu=I.div`
+  animation: ${vu} 1.5s infinite;
+`,bu=I.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-`,bu=I.div`
+`,xu=I.div`
   width: 320px;
   height: 69px;
   border-radius: 5px;
@@ -206,26 +206,26 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   display: flex;
   align-items: center;
   box-sizing: border-box;
-`,xu=I.div`
+`,Su=I.div`
   width: 64px;
   height: 40px;
   border-radius: 4px;
   background-color: #ebebeb;
   flex-shrink: 0;
-`,Su=I.div`
+`,Cu=I.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
   flex: 1;
-`,Cu=I(vu)`
+`,wu=I(yu)`
   width: ${({width:e})=>e??`100%`};
   height: ${({height:e})=>e??`12px`};
   border-radius: 3px;
-`,wu=I(vu)`
+`,Tu=I(yu)`
   width: 100%;
   height: 44px;
   border-radius: 5px;
-`,Tu={success:{img:`/react-payments/GhostCard.svg`,title:`등록된 카드가 없습니다`,description:`아래 버튼을 눌러 첫 카드를 등록해보세요`,buttonLabel:`카드 추가하기`},error:{img:`/react-payments/ErrorIcon.svg`,title:`카드 목록을 불러올 수 없어요`,description:`잠시 후 다시 시도해 주세요`,buttonLabel:`다시 시도`}};function Eu({type:e,onClick:t}){let{img:n,title:r,description:i,buttonLabel:a}=Tu[e];return(0,L.jsxs)(Du,{children:[(0,L.jsx)(`img`,{src:n}),(0,L.jsx)(Ou,{children:r}),(0,L.jsx)(ku,{children:i}),(0,L.jsx)(tu,{onClick:t,children:a})]})}var Du=I.div`
+`,Eu={success:{img:`/react-payments/GhostCard.svg`,title:`등록된 카드가 없습니다`,description:`아래 버튼을 눌러 첫 카드를 등록해보세요`,buttonLabel:`카드 추가하기`},error:{img:`/react-payments/ErrorIcon.svg`,title:`카드 목록을 불러올 수 없어요`,description:`잠시 후 다시 시도해 주세요`,buttonLabel:`다시 시도`}};function Du({type:e,onClick:t}){let{img:n,title:r,description:i,buttonLabel:a}=Eu[e];return(0,L.jsxs)(Ou,{children:[(0,L.jsx)(`img`,{src:n}),(0,L.jsx)(ku,{children:r}),(0,L.jsx)(Au,{children:i}),(0,L.jsx)(tu,{onClick:t,children:a})]})}var Ou=I.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -233,18 +233,18 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   width: 320px;
   height: 330px;
   padding-top: 100px;
-`,Ou=I.p`
+`,ku=I.p`
   font-weight: 700;
   font-size: 20px;
   font-family: sans-serif;
   line-height: 100%;
-`,ku=I.p`
+`,Au=I.p`
   color: #8c8c8c;
   font-weight: 400;
   font-size: 12px;
   font-family: sans-serif;
   line-height: 100%;
-`;function Au(){let e=mt();return(0,L.jsx)(ju,{type:`button`,onClick:()=>e(`/register`),children:`+카드 추가`})}var ju=I.button`
+`;function ju(){let e=mt();return(0,L.jsx)(Mu,{type:`button`,onClick:()=>e(`/register`),children:`+카드 추가`})}var Mu=I.button`
   background-color: #ffffff;
   width: 320px;
   height: 40px;
@@ -256,9 +256,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   font-family: sans-serif;
   color: #e6e6e6;
   cursor: pointer;
-`;function Mu({id:e,onDelete:t}){return(0,L.jsx)(`div`,{children:(0,L.jsx)(Nu,{src:`/react-payments/X.svg`,onClick:async()=>{if(window.confirm(`카드를 삭제할까요?`))try{if(!(await ou.delete(e)).ok)throw Error();t()}catch{alert(`카드 삭제에 실패했습니다. 잠시 후 다시 시도해 주세요.`)}},"aria-label":`삭제`})})}var Nu=I.img`
+`;function Nu({id:e,onDelete:t}){return(0,L.jsx)(`div`,{children:(0,L.jsx)(Pu,{src:`/react-payments/X.svg`,onClick:async()=>{if(window.confirm(`카드를 삭제할까요?`))try{if(!(await ou.delete(e)).ok)throw Error();t()}catch{alert(`카드 삭제에 실패했습니다. 잠시 후 다시 시도해 주세요.`)}},"aria-label":`삭제`})})}var Pu=I.img`
   cursor: pointer;
-`;function Pu({card:e,onDelete:t}){return(0,L.jsxs)(Fu,{children:[(0,L.jsx)(Iu,{$color:da[e.issuerCode]??`#e0e0e0`}),(0,L.jsxs)(Lu,{children:[(0,L.jsx)(Ru,{children:ua[e.issuerCode]}),(0,L.jsx)(zu,{children:e.number}),(0,L.jsx)(Bu,{children:e.expirationDate})]}),(0,L.jsx)(Mu,{id:e.id,onDelete:t})]})}var Fu=I.div`
+`;function Fu({card:e,onDelete:t}){return(0,L.jsxs)(Iu,{children:[(0,L.jsx)(Lu,{$color:da[e.issuerCode]??`#e0e0e0`}),(0,L.jsxs)(Ru,{children:[(0,L.jsx)(zu,{children:ua[e.issuerCode]}),(0,L.jsx)(Bu,{children:e.number}),(0,L.jsx)(Vu,{children:e.expirationDate})]}),(0,L.jsx)(Nu,{id:e.id,onDelete:t})]})}var Iu=I.div`
   display: flex;
   align-items: center;
   width: 295px;
@@ -268,38 +268,38 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   padding: 12px;
   gap: 12px;
   margin: 0;
-`,Iu=I.div`
+`,Lu=I.div`
   background-color: ${({$color:e})=>e};
   width: 64px;
   height: 40px;
   border-radius: 4px;
-`,Lu=I.div`
+`,Ru=I.div`
   display: flex;
   flex-direction: column;
   width: 178px;
   height: 49px;
   gap: 4px;
-`,Ru=I.p`
+`,zu=I.p`
   font-size: 14px;
   font-family: sans-serif;
   font-weight: bold;
   margin: 2px;
-`,zu=I.p`
+`,Bu=I.p`
   font-size: 11px;
   font-family: sans-serif;
   color: #8c8c8c;
   margin: 2px;
-`,Bu=I.p`
+`,Vu=I.p`
   font-size: 9.5px;
   font-family: sans-serif;
   color: #8c8c8c;
   margin: 2px;
-`;function Vu({cards:e,onDelete:t}){return(0,L.jsxs)(Hu,{children:[e.map(e=>(0,L.jsx)(Pu,{card:e,onDelete:t},e.id)),(0,L.jsx)(Au,{})]})}var Hu=I.div`
+`;function Hu({cards:e,onDelete:t}){return(0,L.jsxs)(Uu,{children:[e.map(e=>(0,L.jsx)(Fu,{card:e,onDelete:t},e.id)),(0,L.jsx)(ju,{})]})}var Uu=I.div`
   display: flex;
   flex-direction: column;
   width: 320px;
   gap: 16px;
-`;function Uu(){let[e,t]=(0,_.useState)({status:`loading`}),n=mt(),r=async()=>{try{let e=await ou.get();if(!e.ok)throw Error(`서버 에러`);t({status:`success`,data:await e.json()})}catch(e){t({status:`error`,error:e})}};return(0,_.useEffect)(()=>{r()},[]),(0,L.jsxs)(Wu,{children:[(0,L.jsxs)(Z,{children:[`보유 카드`,` `,e.status===`success`&&e.data.length>0&&`(${e.data.length})`]}),e.status===`loading`&&(0,L.jsx)(gu,{}),e.status===`error`&&(0,L.jsx)(Eu,{type:`error`,onClick:()=>{t({status:`loading`}),r()}}),e.status===`success`&&e.data.length===0&&(0,L.jsx)(Eu,{type:`success`,onClick:()=>n(`/register`)}),e.status===`success`&&e.data.length>0&&(0,L.jsx)(Vu,{cards:e.data,onDelete:r})]})}var Wu=I.div`
+`;function Wu(){let[e,t]=(0,_.useState)({status:`loading`}),n=mt(),r=async()=>{try{let e=await ou.get();if(!e.ok)throw Error(`서버 에러`);t({status:`success`,data:await e.json()})}catch(e){t({status:`error`,error:e})}};return(0,_.useEffect)(()=>{r()},[]),(0,L.jsxs)(Z,{children:[(0,L.jsxs)(Gu,{children:[`보유 카드`,` `,e.status===`success`&&e.data.length>0&&`(${e.data.length})`]}),e.status===`loading`&&(0,L.jsx)(_u,{}),e.status===`error`&&(0,L.jsx)(Du,{type:`error`,onClick:()=>{t({status:`loading`}),r()}}),e.status===`success`&&e.data.length===0&&(0,L.jsx)(Du,{type:`success`,onClick:()=>n(`/register`)}),e.status===`success`&&e.data.length>0&&(0,L.jsx)(Hu,{cards:e.data,onDelete:r})]})}var Z=I.div`
   position: fixed;
   top: 50%;
   left: 50%;
@@ -312,9 +312,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   border: 0.5px solid #e0e0e0;
   box-sizing: border-box;
   padding: 40px 28px 32px 28px;
-`,Z=I.p`
+`,Gu=I.p`
   font-size: 18px;
   font-weight: 700;
   font-family: sans-serif;
   margin: 0;
-`;function Gu(){return(0,L.jsxs)(Ht,{children:[(0,L.jsx)(Bt,{path:`/`,element:(0,L.jsx)(zt,{to:`/cards`,replace:!0})}),`;`,(0,L.jsx)(Bt,{path:`/cards`,element:(0,L.jsx)(Uu,{})}),(0,L.jsx)(Bt,{path:`/register`,element:(0,L.jsx)(cu,{})}),(0,L.jsx)(Bt,{path:`/complete`,element:(0,L.jsx)(du,{})})]})}async function Ku(){try{let{worker:e}=await C(async()=>{let{worker:e}=await import(`./browser-u5jxln3u.js`);return{worker:e}},[]);await e.start({onUnhandledRequest:`bypass`,serviceWorker:{url:`/react-payments/mockServiceWorker.js`}})}catch(e){console.error(`MSW 시작 실패:`,e)}(0,y.createRoot)(document.getElementById(`root`)).render((0,L.jsx)(_.StrictMode,{children:(0,L.jsx)(An,{children:(0,L.jsx)(Gu,{})})}))}Ku();export{iu as t};
+`;function Ku(){return(0,L.jsxs)(Ht,{children:[(0,L.jsx)(Bt,{path:`/`,element:(0,L.jsx)(zt,{to:`/cards`,replace:!0})}),`;`,(0,L.jsx)(Bt,{path:`/cards`,element:(0,L.jsx)(Wu,{})}),(0,L.jsx)(Bt,{path:`/register`,element:(0,L.jsx)(lu,{})}),(0,L.jsx)(Bt,{path:`/complete`,element:(0,L.jsx)(fu,{})})]})}async function qu(){try{let{worker:e}=await C(async()=>{let{worker:e}=await import(`./browser-ClXjANsb.js`);return{worker:e}},[]);await e.start({onUnhandledRequest:`bypass`,serviceWorker:{url:`/react-payments/mockServiceWorker.js`}})}catch(e){console.error(`MSW 시작 실패:`,e)}(0,y.createRoot)(document.getElementById(`root`)).render((0,L.jsx)(_.StrictMode,{children:(0,L.jsx)(An,{children:(0,L.jsx)(Ku,{})})}))}qu();export{iu as t};
